@@ -1,0 +1,86 @@
+# SimCereb Default Configuration  
+# This file contains default settings for the SimCereb humanoid robot cerebellum system  
+  
+# Robot configuration  
+robot:  
+  model: "humanoid.urdf"  # Path to the robot model file  
+  initial_pose: "stand"   # Initial pose of the robot (stand, sit, etc.)  
+  scale: 1.0              # Scale factor for the robot model  
+  
+# Simulation settings  
+simulation:  
+  time_step: 0.001        # Simulation time step in seconds  
+  gravity: [0, 0, -9.81]  # Gravity vector [x, y, z]  
+  max_steps: 10000        # Maximum number of simulation steps  
+  realtime_factor: 1.0    # Realtime factor (1.0 = realtime)  
+  render: true            # Whether to render the simulation  
+  camera_distance: 1.5    # Camera distance from the robot  
+  camera_yaw: 45          # Camera yaw angle in degrees  
+  camera_pitch: -30       # Camera pitch angle in degrees  
+  
+# Default plugins configuration  
+plugins:  
+  # Motor control plugin  
+  motor_control:  
+    type: "PDControl"     # Type of the plugin  
+    enabled: true         # Whether the plugin is enabled  
+    parameters:  
+      kp: 100.0           # Proportional gain  
+      kd: 2.0             # Derivative gain  
+      max_force: 100.0    # Maximum force applied by the controller  
+      control_mode: "position"  # Control mode (position, velocity, torque)  
+    
+  # Balance control plugin  
+  balance_control:  
+    type: "ZMPControl"    # Type of the plugin  
+    enabled: true         # Whether the plugin is enabled  
+    parameters:  
+      com_height: 0.5     # Center of mass height  
+      stability_margin: 0.05  # Stability margin  
+      kp: 10.0            # Proportional gain  
+      kd: 1.0             # Derivative gain  
+      ki: 0.1             # Integral gain  
+    
+  # Gait generation plugin  
+  gait_generation:  
+    type: "CPGGait"       # Type of the plugin  
+    enabled: false        # Whether the plugin is enabled  
+    parameters:  
+      step_height: 0.05   # Step height  
+      step_length: 0.1    # Step length  
+      cycle_time: 1.0     # Gait cycle time in seconds  
+      phase_offset: 0.5   # Phase offset between legs  
+    
+  # Sensor processing plugin  
+  sensor_processing:  
+    type: "SensorFusion"  # Type of the plugin  
+    enabled: true         # Whether the plugin is enabled  
+    parameters:  
+      imu_weight: 0.7     # Weight for IMU data  
+      joint_weight: 0.3   # Weight for joint data  
+      filter_cutoff: 10.0 # Low-pass filter cutoff frequency  
+    
+  # Inverse kinematics plugin  
+  inverse_kinematics:  
+    type: "AnalyticalIK"  # Type of the plugin  
+    enabled: true         # Whether the plugin is enabled  
+    parameters:  
+      max_iterations: 100 # Maximum number of iterations  
+      tolerance: 0.001    # Convergence tolerance  
+      damping: 0.1        # Damping factor for numerical stability  
+  
+# Logging configuration  
+logging:  
+  level: "info"           # Logging level (debug, info, warning, error)  
+  file: "simcereb.log"    # Log file name  
+  console: true           # Whether to log to console  
+  data_recording: true    # Whether to record simulation data  
+  record_interval: 0.01   # Data recording interval in seconds  
+  
+# UI configuration  
+ui:  
+  theme: "light"          # UI theme (light, dark)  
+  language: "en"          # UI language  
+  font_size: 12           # Font size  
+  window_size: [1200, 800]  # Initial window size [width, height]  
+  auto_save: true         # Whether to auto-save configuration changes
