@@ -1,0 +1,31 @@
+# simcereb/configs/learning/default_config.yaml  
+# SimCereb Learning Edition Configuration  
+  
+# UI configuration  
+ui:  
+  simplified: true  
+  welcome_wizard: true  
+  show_tooltips: true  
+    
+# Tutorial configuration  
+tutorials:  
+  enabled: true  
+  auto_start: true  
+  first_tutorial: "intro_to_balance"  
+    
+# Visual programming configuration  
+visual_programming:  
+  enabled: true  
+  default_mode: "blocks"  # blocks or code  
+    
+# Plugin configuration  
+plugins:  
+  # Simplified versions of plugins for learning  
+  motor_control:  
+    parameters:  
+      simplified_interface: true  
+    
+  balance_control:  
+    parameters:  
+      simplified_interface: true  
+      visualization_level: "detailed"

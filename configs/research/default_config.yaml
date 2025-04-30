@@ -1,0 +1,33 @@
+# simcereb/configs/research/default_config.yaml  
+# SimCereb Research Edition Configuration  
+  
+# Advanced analytics configuration  
+analytics:  
+  enabled: true  
+  real_time_monitoring: true  
+  export_formats: ["csv", "json", "hdf5"]  
+    
+# Environment editor configuration  
+environment:  
+  editor_enabled: true  
+  available_terrains: ["flat", "stairs", "slope", "rough"]  
+  available_obstacles: ["box", "sphere", "cylinder", "custom"]  
+    
+# Batch experiments configuration  
+experiments:  
+  batch_enabled: true  
+  parameter_sweep: true  
+  parallel_execution: true  
+  max_parallel: 4  
+    
+# Plugin configuration  
+plugins:  
+  # Advanced versions of plugins for research  
+  motor_control:  
+    parameters:  
+      advanced_interface: true  
+    
+  balance_control:  
+    parameters:  
+      advanced_interface: true  
+      visualization_level: "technical"

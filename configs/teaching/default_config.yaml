@@ -1,0 +1,32 @@
+# simcereb/configs/teaching/default_config.yaml  
+# SimCereb Teaching Edition Configuration  
+  
+# Classroom management configuration  
+classroom:  
+  enabled: true  
+  max_students: 50  
+  max_classes: 10  
+    
+# Assignment management configuration  
+assignments:  
+  enabled: true  
+  auto_grading: true  
+    
+# Presentation mode configuration  
+presentation:  
+  enabled: true  
+  annotation_tools: true  
+  recording: true  
+    
+# Plugin configuration  
+plugins:  
+  # Teaching versions of plugins  
+  motor_control:  
+    parameters:  
+      teaching_interface: true  
+      step_by_step_execution: true  
+    
+  balance_control:  
+    parameters:  
+      teaching_interface: true  
+      visualization_level: "educational"

@@ -1,5 +1,45 @@
+# simcereb/configs/default_config.yaml  
 # SimCereb Default Configuration  
 # This file contains default settings for the SimCereb humanoid robot cerebellum system  
+  
+# Version configuration  
+version: "learning"  # Default version (learning, research, teaching)  
+  
+# Version-specific feature flags  
+versions:  
+  learning:  
+    features:  
+      visual_programming: true  
+      simplified_ui: true  
+      tutorials: true  
+      guided_tasks: true  
+      advanced_analytics: false  
+      environment_editor: false  
+      classroom_management: false  
+        
+  research:  
+    features:  
+      visual_programming: false  
+      simplified_ui: false  
+      tutorials: true  
+      guided_tasks: false  
+      advanced_analytics: true  
+      environment_editor: true  
+      batch_experiments: true  
+      real_data_collection: true  
+      classroom_management: false  
+        
+  teaching:  
+    features:  
+      visual_programming: true  
+      simplified_ui: false  
+      tutorials: true  
+      guided_tasks: true  
+      advanced_analytics: true  
+      environment_editor: true  
+      classroom_management: true  
+      presentation_mode: true  
+      assignment_management: true  
   
 # Robot configuration  
 robot:  
@@ -24,6 +64,7 @@ plugins:
   motor_control:  
     type: "PDControl"     # Type of the plugin  
     enabled: true         # Whether the plugin is enabled  
+    supported_versions: ["learning", "research", "teaching"]  
     parameters:  
       kp: 100.0           # Proportional gain  
       kd: 2.0             # Derivative gain  
@@ -34,6 +75,7 @@ plugins:
   balance_control:  
     type: "ZMPControl"    # Type of the plugin  
     enabled: true         # Whether the plugin is enabled  
+    supported_versions: ["learning", "research", "teaching"]  
     parameters:  
       com_height: 0.5     # Center of mass height  
       stability_margin: 0.05  # Stability margin  
@@ -45,29 +87,12 @@ plugins:
   gait_generation:  
     type: "CPGGait"       # Type of the plugin  
     enabled: false        # Whether the plugin is enabled  
+    supported_versions: ["learning", "research", "teaching"]  
     parameters:  
       step_height: 0.05   # Step height  
       step_length: 0.1    # Step length  
       cycle_time: 1.0     # Gait cycle time in seconds  
       phase_offset: 0.5   # Phase offset between legs  
-    
-  # Sensor processing plugin  
-  sensor_processing:  
-    type: "SensorFusion"  # Type of the plugin  
-    enabled: true         # Whether the plugin is enabled  
-    parameters:  
-      imu_weight: 0.7     # Weight for IMU data  
-      joint_weight: 0.3   # Weight for joint data  
-      filter_cutoff: 10.0 # Low-pass filter cutoff frequency  
-    
-  # Inverse kinematics plugin  
-  inverse_kinematics:  
-    type: "AnalyticalIK"  # Type of the plugin  
-    enabled: true         # Whether the plugin is enabled  
-    parameters:  
-      max_iterations: 100 # Maximum number of iterations  
-      tolerance: 0.001    # Convergence tolerance  
-      damping: 0.1        # Damping factor for numerical stability  
   
 # Logging configuration  
 logging:  
@@ -80,7 +105,7 @@ logging:
 # UI configuration  
 ui:  
   theme: "light"          # UI theme (light, dark)  
-  language: "en"          # UI language  
+  language: "zh_CN"       # UI language  
   font_size: 12           # Font size  
   window_size: [1200, 800]  # Initial window size [width, height]  
   auto_save: true         # Whether to auto-save configuration changes
