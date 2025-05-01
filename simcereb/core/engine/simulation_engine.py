@@ -6,8 +6,8 @@ import pybullet as p
 import pybullet_data  
 import time  
 import numpy as np  
-from .plugin.plugin_manager import PluginManager  
-from ..core.config_manager import ConfigManager  
+from ..plugin.plugin_manager import PluginManager  
+from ..config.config_manager import ConfigManager  
   
 class SimulationEngine:  
     """  

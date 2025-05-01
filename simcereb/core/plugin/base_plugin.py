@@ -1,4 +1,4 @@
-# simcereb/plugins/base.py  
+# simcereb/core/plugin/base_plugin.py  
 class CerebellumPlugin:  
     """Base class for all cerebellum plugins"""  
       
