@@ -8,10 +8,10 @@ import os
 import argparse  
 from PyQt5.QtWidgets import QApplication  
   
-from simcereb.core.config.config_manager import ConfigManager  
-from simcereb.core.config.version_manager import VersionManager  
-from simcereb.core.engine.simulation_engine import SimulationEngine  
-from simcereb.ui.studio import SimCerebStudio  
+from .core.config.config_manager import ConfigManager  
+from .core.config.version_manager import VersionManager  
+from .core.engine.simulation_engine import SimulationEngine  
+from .ui.studio import SimCerebStudio  
   
 def main():  
     """Main entry point for the application"""  

@@ -1,0 +1,2 @@
+[console_scripts]
+simcereb = simcereb.__main__:main
