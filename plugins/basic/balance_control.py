@@ -1,6 +1,6 @@
 # simcereb/plugins/balance_control.py  
 import numpy as np  
-from .base import CerebellumPlugin  
+from ..base import CerebellumPlugin  
   
 class ZMPControl(CerebellumPlugin):  
     """  

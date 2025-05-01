@@ -6,7 +6,7 @@ import importlib
 import inspect  
 import os  
 import sys  
-from ..plugins.base import CerebellumPlugin  
+from ...plugins.base import CerebellumPlugin  
   
 class PluginManager:  
     """  

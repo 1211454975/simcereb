@@ -420,4 +420,4 @@ class PresentationMode(VersionSpecificWidget):
         self.elapsed_time += 1  
         minutes = self.elapsed_time // 60  
         seconds = self.elapsed_time % 60  
-        self.timer_label.setText(f"{minutes:02d}
+        self.timer_label.setText(f"{minutes:02d}:{seconds:02d}")
