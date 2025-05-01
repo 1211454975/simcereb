@@ -67,7 +67,7 @@ python -m simcereb --config path/to/config.yaml
 ## 创建自定义插件
 
 ```python
-from simcereb.plugins.base import CerebellumPlugin  
+from simcereb.core.plugin.base_plugin import CerebellumPlugin  
   
 class MyCustomPlugin(CerebellumPlugin):  
     def __init__(self, config=None):  
