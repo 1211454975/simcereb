@@ -1,5 +1,2 @@
-core
-plugins
+simcereb
 tests
-ui
-utils
