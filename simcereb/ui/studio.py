@@ -21,17 +21,19 @@ class SimCerebStudio(QMainWindow):
         super().__init__()  
         
         # 保存传入的参数  
-        self.engine = engine or SimulationEngine(use_gui=False)  # 如果没有提供，则创建默认引擎  
+        self.engine = engine  
         self.config_manager = config_manager  
         self.version_manager = version_manager  
         
         # 初始化UI  
         self.init_ui()  
         
-        # 启动模拟计时器  
-        self.timer = QTimer(self)  
-        self.timer.timeout.connect(self.update_simulation)  
-        self.timer.start(int(self.engine.time_step * 1000))  # 转换为毫秒
+        # 如果提供了引擎，启动模拟计时器  
+        if self.engine:  
+            from PyQt5.QtCore import QTimer  
+            self.timer = QTimer(self)  
+            self.timer.timeout.connect(self.update_simulation)  
+            self.timer.start(int(self.engine.time_step * 1000))  # 转换为毫秒
           
     def init_ui(self):  
         """Initialize the user interface"""  
